@@ -91,12 +91,14 @@ export function Dashboard() {
           </h1>
           <p className="text-gray-500 mt-1">Aquí tienes un resumen de tus boletas y tickets</p>
         </div>
-        <Button as={Link} to="/tickets/new">
-          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-          </svg>
-          Nueva boleta
-        </Button>
+        <Link to="/tickets/new">
+          <Button>
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+            </svg>
+            Nueva boleta
+          </Button>
+        </Link>
       </div>
 
       {/* Stats cards */}
