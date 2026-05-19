@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { ticketsService } from '../services/tickets.service';
 import type { Ticket } from '../types';
 import { useAuth } from '../hooks/useAuth';
@@ -8,6 +9,7 @@ import { Card, CardHeader } from '../components/ui/Card';
 import { Badge } from '../components/ui/Badge';
 import { Spinner } from '../components/ui/Spinner';
 import { Button } from '../components/ui/Button';
+import { TicketChart } from '../components/ui/TicketChart';
 
 interface DashboardStats {
   total: number;
@@ -86,10 +88,10 @@ export function Dashboard() {
       {/* Welcome header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
             Bienvenido, {user?.name} 👋
           </h1>
-          <p className="text-gray-500 mt-1">Aquí tienes un resumen de tus boletas y tickets</p>
+          <p className="text-gray-500 dark:text-gray-400 mt-1">Aquí tienes un resumen de tus boletas y tickets</p>
         </div>
         <Link to="/tickets/new">
           <Button>
@@ -104,16 +106,21 @@ export function Dashboard() {
       {/* Stats cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {statCards.map((card) => (
-          <div
+          <motion.div
             key={card.label}
             className={`bg-gradient-to-br ${card.color} rounded-2xl p-6 text-white shadow-lg`}
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: 'spring', stiffness: 300 }}
           >
             <div className="text-3xl mb-2">{card.icon}</div>
             <div className="text-4xl font-bold">{card.value}</div>
             <div className="text-white/80 text-sm mt-1">{card.label}</div>
-          </div>
+          </motion.div>
         ))}
       </div>
+
+      {/* Charts */}
+      <TicketChart tickets={tickets} />
 
       {/* Recent tickets */}
       <Card>
