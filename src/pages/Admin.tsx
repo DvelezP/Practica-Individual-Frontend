@@ -74,9 +74,9 @@ export function Admin() {
           <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800">
             Admin
           </span>
-          <h1 className="text-2xl font-bold text-gray-900">Panel de administración</h1>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Panel de administración</h1>
         </div>
-        <p className="text-gray-500">Visualiza y gestiona todos los tickets del sistema</p>
+        <p className="text-gray-500 dark:text-gray-400">Visualiza y gestiona todos los tickets del sistema</p>
       </div>
 
       {/* Filters */}
@@ -141,44 +141,44 @@ export function Admin() {
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="border-b border-gray-200 bg-gray-50">
-                    <th className="text-left text-xs font-semibold text-gray-500 uppercase tracking-wider px-6 py-3">
+                  <tr className="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
+                    <th className="text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider px-6 py-3">
                       ID
                     </th>
-                    <th className="text-left text-xs font-semibold text-gray-500 uppercase tracking-wider px-6 py-3">
+                    <th className="text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider px-6 py-3">
                       Título
                     </th>
-                    <th className="text-left text-xs font-semibold text-gray-500 uppercase tracking-wider px-6 py-3 hidden sm:table-cell">
+                    <th className="text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider px-6 py-3 hidden sm:table-cell">
                       Propietario
                     </th>
-                    <th className="text-left text-xs font-semibold text-gray-500 uppercase tracking-wider px-6 py-3 hidden md:table-cell">
+                    <th className="text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider px-6 py-3 hidden md:table-cell">
                       Tipo
                     </th>
-                    <th className="text-left text-xs font-semibold text-gray-500 uppercase tracking-wider px-6 py-3 hidden lg:table-cell">
+                    <th className="text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider px-6 py-3 hidden lg:table-cell">
                       Fecha
                     </th>
-                    <th className="text-left text-xs font-semibold text-gray-500 uppercase tracking-wider px-6 py-3">
+                    <th className="text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider px-6 py-3">
                       Estado
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-100">
+                <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
                   {tickets.map((ticket) => (
-                    <tr key={ticket.id} className="hover:bg-gray-50 transition-colors">
+                    <tr key={ticket.id} className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                       <td className="px-6 py-4">
-                        <span className="text-sm font-mono text-gray-500">#{ticket.id}</span>
+                        <span className="text-sm font-mono text-gray-500 dark:text-gray-400">#{ticket.id}</span>
                       </td>
                       <td className="px-6 py-4">
-                        <p className="font-medium text-gray-900 truncate max-w-xs">{ticket.title}</p>
+                        <p className="font-medium text-gray-900 dark:text-gray-100 truncate max-w-xs">{ticket.title}</p>
                         {ticket.gameNumber && (
-                          <p className="text-xs text-gray-500 mt-0.5">#{ticket.gameNumber}</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">#{ticket.gameNumber}</p>
                         )}
                       </td>
                       <td className="px-6 py-4 hidden sm:table-cell">
                         {ticket.user ? (
                           <div>
-                            <p className="text-sm font-medium text-gray-900">{ticket.user.name}</p>
-                            <p className="text-xs text-gray-500">{ticket.user.email}</p>
+                            <p className="text-sm font-medium text-gray-900 dark:text-gray-100">{ticket.user.name}</p>
+                            <p className="text-xs text-gray-500 dark:text-gray-400">{ticket.user.email}</p>
                           </div>
                         ) : (
                           <span className="text-xs text-gray-400 font-mono">
@@ -190,7 +190,7 @@ export function Admin() {
                         <Badge className={getGameTypeColor(ticket.gameType)}>{ticket.gameType}</Badge>
                       </td>
                       <td className="px-6 py-4 hidden lg:table-cell">
-                        <span className="text-sm text-gray-600">{formatDate(ticket.gameDate)}</span>
+                        <span className="text-sm text-gray-600 dark:text-gray-400">{formatDate(ticket.gameDate)}</span>
                       </td>
                       <td className="px-6 py-4">
                         <Badge className={getStatusColor(ticket.status)}>{ticket.status}</Badge>

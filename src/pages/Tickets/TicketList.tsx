@@ -75,8 +75,8 @@ export function TicketList() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Mis Boletas</h1>
-          <p className="text-gray-500 mt-1">Gestiona todos tus tickets y boletas</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Mis Boletas</h1>
+          <p className="text-gray-500 dark:text-gray-400 mt-1">Gestiona todos tus tickets y boletas</p>
         </div>
         <Link to="/tickets/new">
           <Button>
@@ -130,44 +130,44 @@ export function TicketList() {
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="border-b border-gray-200 bg-gray-50">
-                    <th className="text-left text-xs font-semibold text-gray-500 uppercase tracking-wider px-6 py-3">
+                  <tr className="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
+                    <th className="text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider px-6 py-3">
                       Título
                     </th>
-                    <th className="text-left text-xs font-semibold text-gray-500 uppercase tracking-wider px-6 py-3 hidden sm:table-cell">
+                    <th className="text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider px-6 py-3 hidden sm:table-cell">
                       Tipo
                     </th>
-                    <th className="text-left text-xs font-semibold text-gray-500 uppercase tracking-wider px-6 py-3 hidden md:table-cell">
+                    <th className="text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider px-6 py-3 hidden md:table-cell">
                       Fecha
                     </th>
-                    <th className="text-left text-xs font-semibold text-gray-500 uppercase tracking-wider px-6 py-3 hidden lg:table-cell">
+                    <th className="text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider px-6 py-3 hidden lg:table-cell">
                       Lugar
                     </th>
-                    <th className="text-left text-xs font-semibold text-gray-500 uppercase tracking-wider px-6 py-3">
+                    <th className="text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider px-6 py-3">
                       Estado
                     </th>
-                    <th className="text-right text-xs font-semibold text-gray-500 uppercase tracking-wider px-6 py-3">
+                    <th className="text-right text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider px-6 py-3">
                       Acciones
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-100">
+                <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
                   {tickets.map((ticket) => (
-                    <tr key={ticket.id} className="hover:bg-gray-50 transition-colors">
+                    <tr key={ticket.id} className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                       <td className="px-6 py-4">
-                        <p className="font-medium text-gray-900 truncate max-w-xs">{ticket.title}</p>
+                        <p className="font-medium text-gray-900 dark:text-gray-100 truncate max-w-xs">{ticket.title}</p>
                         {ticket.gameNumber && (
-                          <p className="text-xs text-gray-500 mt-0.5">#{ticket.gameNumber}</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">#{ticket.gameNumber}</p>
                         )}
                       </td>
                       <td className="px-6 py-4 hidden sm:table-cell">
                         <Badge className={getGameTypeColor(ticket.gameType)}>{ticket.gameType}</Badge>
                       </td>
                       <td className="px-6 py-4 hidden md:table-cell">
-                        <span className="text-sm text-gray-600">{formatDate(ticket.gameDate)}</span>
+                        <span className="text-sm text-gray-600 dark:text-gray-400">{formatDate(ticket.gameDate)}</span>
                       </td>
                       <td className="px-6 py-4 hidden lg:table-cell">
-                        <span className="text-sm text-gray-600 truncate max-w-xs block">{ticket.place}</span>
+                        <span className="text-sm text-gray-600 dark:text-gray-400 truncate max-w-xs block">{ticket.place}</span>
                       </td>
                       <td className="px-6 py-4">
                         <Badge className={getStatusColor(ticket.status)}>{ticket.status}</Badge>
